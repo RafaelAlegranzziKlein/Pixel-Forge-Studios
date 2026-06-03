@@ -1,0 +1,144 @@
+/*Paleta de cores Modo escuro:
+- Vermelho: #F2613F
+- Marrom escuro: #9B3922
+- Preto: #0C0C0C
+- Marron: #481E14
+*/
+
+/*paleta de cores Modo claro:
+- Branco: #FFFFFF
+- Azul claro: #8FABD4
+- 4A70A9 acincetado: #1a1a1a
+- Preto: #000000
+*/
+
+.container-jogos {
+    display: flex;
+    gap: 12px;
+    /* espaço entre os cards */
+
+    flex-wrap: wrap;
+    /* quebra linha se faltar espaço */
+
+    justify-content: center;
+    /* centraliza os cards horizontalmente */
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 #FF0000;
+    background-color: rgb(48, 56, 65, 0.5);
+    transition: 0.3s;
+    border-radius: 10px;
+    width: 25%;
+    color: white;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+}
+
+.logoJogo {
+    width: 55%;
+    border-style: none;
+    border-radius: 32px;
+}
+
+.card:hover {
+    background-color: #0C0C0C;
+    transition: 1s;
+    animation: pulseShadow 1s infinite alternate;
+
+
+}
+
+@keyframes pulseShadow {
+    100% {
+        box-shadow: 0px 10px 10px #F2613F;
+        text-shadow: 0px 0px 30px #9B3922,0px 0px 30px #9B3922,0px 0px 30px #481E14;
+
+    }
+
+    50% {
+        box-shadow: 0px 7px 7px #9B3922;
+        text-shadow: 0px 0px 20px #9B3922,0px 0px 20px #481E14,0px 0px 20px #F2613F;
+    }
+
+    0% {
+        box-shadow: 0px 5px 5px #481E14;
+       text-shadow: 0px 0px 10px #481E14,0px 0px 10px #9B3922,0px 0px 10px #F2613F;
+    }
+
+}
+
+
+button {
+    background-color: #9B3922;
+    color: #0C0C0C;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+/* O fundo do modal que cobre a tela inteira */
+.modal {
+    display: none;          /* Começa escondido */
+    position: fixed;        /* Fixado na tela, acompanha o scroll */
+    z-index: 9999;          /* Fica por cima de ABSOLUTAMENTE tudo */
+    left: 0;
+    top: 0;
+    width: 100%;            /* Largura total */
+    height: 100%;           /* Altura total */
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo preto transparente */
+}
+
+/* A caixinha centralizada com as informações do jogo */
+.modal-content {
+    background-color: #1a1a1a; 
+    color: white;
+    margin: 15% auto;          /* Centraliza verticalmente e horizontalmente */
+    padding: 30px;
+    border: 2px solid #9B3922; /* Borda vermelha combinando com seus botões */
+    border-radius: 10px;
+    width: 50%;                /* Largura da caixinha */
+    max-width: 500px;          /* Limite de largura para telas grandes */
+    position: relative;
+    box-shadow: 0px 0px 20px rgba(242, 97, 63, 0.5); /* Sombra brilhante */
+}
+
+/* O botão de fechar (X) */
+.close-btn {
+    color: #F2613F;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.close-btn:hover {
+    color: white;
+}
+
+/* Ajustes de espaçamento dentro do modal */
+.modal-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #F2613F; /* Título com destaque */
+}
+
+.modal-content h4 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    font-style: italic;
+    color: #cccccc;
+}
+
+.modal-content p {
+    font-size: 14px;
+    line-height: 1.5;
+}
