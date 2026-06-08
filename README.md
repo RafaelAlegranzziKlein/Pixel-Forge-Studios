@@ -56,4 +56,4 @@ Uma landing page moderna, responsiva e com estética premium gamer desenvolvida 
 
 ## 🙍 Autor do Projeto
 
-* ** Rafael Alegranzzi Klein  
+* **Rafael Alegranzzi Klein**
