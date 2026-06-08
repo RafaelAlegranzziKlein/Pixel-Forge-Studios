@@ -27,13 +27,13 @@
     --cor-texto-secundario: #1a1a1a;
     --bg-botao: #4A70A9;
     --cor-texto-botao: #eee9e1;
-    
+
     /* Cores de Destaque e Sombras (Claro) */
     --cor-destaque: #1a1a1a;
     --sombra-forte: #1a1a1a;
     --sombra-media: #4A70A9;
     --sombra-fraca: #8FABD4;
-    
+
     /* Modal (Claro) */
     --bg-modal: #eee9e1;
     --borda-modal: #4A70A9;
@@ -43,19 +43,20 @@
     /* MODO ESCURO */
     --bg-principal: #0f0f0f;
     --bg-header: #0f0f0f;
-    --bg-card: rgba(48, 56, 65, 0.5); /* Mantive sua transparência original */
+    --bg-card: rgba(48, 56, 65, 0.5);
+    /* Mantive sua transparência original */
     --bg-card-hover: #0C0C0C;
     --cor-texto: #FFFFFF;
     --cor-texto-secundario: #cccccc;
     --bg-botao: #9B3922;
     --cor-texto-botao: #0C0C0C;
-    
+
     /* Cores de Destaque e Sombras (Escuro) */
     --cor-destaque: #F2613F;
     --sombra-forte: #F2613F;
     --sombra-media: #9B3922;
     --sombra-fraca: #481E14;
-    
+
     /* Modal (Escuro) */
     --bg-modal: #1a1a1a;
     --borda-modal: #9B3922;
@@ -66,14 +67,16 @@
    ======================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 
-body, button {
+body,
+button {
     font-family: "Russo One", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 
 /* Adicionada transição suave no body e main */
-body, main {
+body,
+main {
     background-color: var(--bg-principal);
     color: var(--cor-texto);
     transition: background-color 0.4s ease, color 0.4s ease;
@@ -101,7 +104,7 @@ header {
     width: 100%;
 }
 
-.containerHeader > div {
+.containerHeader>div {
     flex: 1;
 }
 
@@ -159,10 +162,12 @@ header {
         box-shadow: 0px 10px 10px var(--cor-destaque);
         text-shadow: 0px 0px 30px var(--sombra-media), 0px 0px 30px var(--sombra-media), 0px 0px 30px var(--sombra-fraca);
     }
+
     50% {
         box-shadow: 0px 7px 7px var(--sombra-media);
         text-shadow: 0px 0px 20px var(--sombra-media), 0px 0px 20px var(--sombra-fraca), 0px 0px 20px var(--cor-destaque);
     }
+
     0% {
         box-shadow: 0px 5px 5px var(--sombra-fraca);
         text-shadow: 0px 0px 10px var(--sombra-fraca), 0px 0px 10px var(--sombra-media), 0px 0px 10px var(--cor-destaque);
@@ -205,7 +210,7 @@ button:hover {
 }
 
 .modal-content {
-    background-color: var(--bg-modal); 
+    background-color: var(--bg-modal);
     color: var(--cor-texto);
     margin: 15% auto;
     padding: 30px;
@@ -259,17 +264,18 @@ button:hover {
 
 /* ----- TABLET (Telas até 1024px) ----- */
 @media (max-width: 1024px) {
+
     /* Ajusta os cards para ficarem 2 por linha */
     .card {
-        width: 42%; 
+        width: 42%;
         margin-bottom: 4%;
     }
 
     /* O modal precisa de mais espaço em telas médias */
     .modal-content {
-        width: 70%; 
+        width: 70%;
     }
-    
+
     /* Aumenta levemente a logo */
     #logo {
         width: 40%;
@@ -278,6 +284,7 @@ button:hover {
 
 /* ----- CELULAR (Telas até 768px) ----- */
 @media (max-width: 768px) {
+
     /* Empilha os itens do cabeçalho */
     header {
         flex-direction: column;
@@ -312,7 +319,7 @@ button:hover {
     }
 
     .card {
-        width: 85%; 
+        width: 85%;
         padding: 6%;
     }
 
@@ -323,7 +330,8 @@ button:hover {
     /* O modal precisa ocupar quase toda a largura no celular */
     .modal-content {
         width: 90%;
-        margin: 40% auto; /* Desce um pouco mais na tela */
+        margin: 40% auto;
+        /* Desce um pouco mais na tela */
         padding: 20px;
     }
 }
@@ -334,6 +342,7 @@ button:hover {
 
 /* --- Telas Médias (Tablets, até 768px) --- */
 @media (max-width: 768px) {
+
     /* Header empilhado para melhor visualização */
     .containerHeader {
         flex-direction: column;
@@ -343,7 +352,8 @@ button:hover {
     }
 
     #logo {
-        width: 50%; /* Aumenta a logo para não sumir */
+        width: 50%;
+        /* Aumenta a logo para não sumir */
     }
 
     /* Cards: passa a exibir 2 por linha em vez de 4 */
@@ -364,6 +374,7 @@ button:hover {
 
 /* --- Telas Pequenas (Celulares, até 480px) --- */
 @media (max-width: 480px) {
+
     /* Ajustes finos no Header para telas muito pequenas */
     #logo {
         width: 70%;
@@ -375,7 +386,7 @@ button:hover {
         justify-content: center;
         gap: 10px;
     }
-    
+
     .navLinks a {
         margin: 0 5px;
     }
@@ -387,7 +398,8 @@ button:hover {
     }
 
     .container-jogos {
-        gap: 20px; /* Aumenta o espaçamento vertical entre os cards */
+        gap: 20px;
+        /* Aumenta o espaçamento vertical entre os cards */
     }
 
     /* Modal quase em tela cheia para facilitar a leitura */
