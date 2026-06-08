@@ -66,6 +66,17 @@
    ======================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 
+/*body estilo*/
+body {
+    padding-top: 90px;
+}
+
+/* Suaviza a rolagem da página quando clicar nos links */
+html {
+    scroll-behavior: smooth;
+}
+
+
 body, button {
     font-family: "Russo One", sans-serif;
     font-weight: 400;
@@ -78,14 +89,92 @@ body, main {
     color: var(--cor-texto);
     transition: background-color 0.4s ease, color 0.4s ease;
 }
-
+/* ========================================================
+   HEADER FIXO
+   ======================================================== */
 header {
     background-color: var(--bg-header);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 127px;
+    z-index: 9999; /* Fica acima de tudo */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    transition: background-color 0.4s ease;
+    padding: 10px 40px;
+    box-shadow: 0 4px 10px var(--sombra-fraca);
+    box-sizing: border-box;
+    /* Transição suave para o efeito de sumir/aparecer */
+    transition: transform 0.3s ease-in-out, background-color 0.4s ease;
+}
+
+/* Classe dinâmica que o JavaScript vai aplicar ao rolar para baixo */
+.header-hidden {
+    transform: translateY(-100%);
+}
+
+.containerHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.LogoContainer {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#logo {
+    width: 45px; /* Tamanho fixo controlado para o menu fixo */
+    height: auto;
+}
+
+.LogoContainer h1 {
+    font-size: 1.4rem;
+    color: var(--cor-texto);
+    white-space: nowrap;
+}
+
+.navLinks {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navLinks a {
+    color: var(--cor-texto);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+/* Linha decorativa gamer que surge ao passar o mouse nos links */
+.navLinks a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--cor-destaque);
+    transition: width 0.3s ease;
+}
+
+.navLinks a:hover::after {
+    width: 100%;
+}
+
+.navLinks a:hover {
+    color: var(--cor-destaque);
 }
 
 #logo {
@@ -207,7 +296,7 @@ button:hover {
 .modal-content {
     background-color: var(--bg-modal); 
     color: var(--cor-texto);
-    margin: 15% auto;
+    margin: 5vh auto; /* <--- MUDADO DE 15% PARA 5vh (fica mais alto e elegante) */
     padding: 30px;
     border: 2px solid var(--borda-modal);
     border-radius: 10px;
@@ -251,7 +340,215 @@ button:hover {
     line-height: 1.5;
 }
 
+/* ========================================================
+   NOVAS SEÇÕES: BANNER, TRAILER, COMUNIDADE E CONTATO
+   ======================================================== */
 
+/* Banner Principal */
+.banner-principal {
+    background-color: var(--sombra-forte); /* Fallback */
+    /* Se quiser colocar uma imagem de fundo depois, descomente a linha abaixo e mude a URL */
+    /* background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../assets/img/seu-banner.jpg') center/cover; */
+    color: #FFFFFF; /* Fixo branco para leitura no banner */
+    text-align: center;
+    padding: 80px 20px;
+    margin-bottom: 40px;
+    border-bottom: 4px solid var(--cor-destaque);
+}
+
+.banner-conteudo h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 0px 0px 15px var(--cor-destaque);
+}
+
+.banner-conteudo p {
+    font-size: 1.2rem;
+    color: #DDDDDD;
+}
+
+/* Configurações Gerais das Novas Seções */
+.secao-destaque {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: 0 auto 50px auto;
+    text-align: center;
+}
+
+.titulo-secao {
+    font-size: 2.2rem;
+    color: var(--cor-destaque);
+    margin-bottom: 30px;
+    text-shadow: 0px 2px 5px var(--sombra-media);
+}
+
+/* Trailer (Vídeo Responsivo) */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Proporção 16:9 */
+    height: 0;
+    overflow: hidden;
+    border: 3px solid var(--cor-destaque);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--sombra-media);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Comunidade / Depoimentos */
+.container-depoimentos {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.depoimento-card {
+    background-color: var(--bg-card);
+    padding: 25px;
+    border-radius: 8px;
+    width: 280px;
+    box-shadow: 0 4px 8px var(--sombra-fraca);
+    transition: transform 0.3s ease;
+    border-left: 4px solid var(--cor-destaque);
+    text-align: left;
+}
+
+.depoimento-card:hover {
+    transform: translateY(-5px);
+    background-color: var(--bg-card-hover);
+}
+
+.depoimento-card p {
+    font-style: italic;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.depoimento-card span {
+    font-weight: bold;
+    color: var(--cor-destaque);
+}
+
+/* Formulário de Contato */
+.formulario-contato {
+    background-color: var(--bg-card);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px var(--sombra-fraca);
+    text-align: left;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--cor-texto);
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--sombra-media);
+    border-radius: 5px;
+    background-color: var(--bg-principal);
+    color: var(--cor-texto);
+    font-family: inherit;
+    box-sizing: border-box; /* Impede que o padding quebre a largura */
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    outline: none;
+    border-color: var(--cor-destaque);
+    box-shadow: 0 0 8px var(--cor-destaque);
+}
+
+.btn-enviar {
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background-color: var(--bg-header);
+    color: var(--cor-texto);
+    padding: 40px 20px 20px;
+    border-top: 3px solid var(--cor-destaque);
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: 30px;
+    text-align: center;
+}
+
+.footer-contato h4, .footer-social h4 {
+    color: var(--cor-destaque);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.footer-contato p {
+    margin: 5px 0;
+}
+
+.footer-social a {
+    color: var(--cor-texto);
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.footer-social a:hover {
+    color: var(--cor-destaque);
+}
+
+.footer-copyright {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid var(--sombra-fraca);
+    font-size: 0.9rem;
+    color: var(--cor-texto-secundario);
+}
+
+/* ========================================================
+   RESPONSIVIDADE (NOVAS SEÇÕES)
+   ======================================================== */
+@media (max-width: 768px) {
+    .banner-conteudo h2 {
+        font-size: 2rem;
+    }
+    
+    .depoimento-card {
+        width: 100%; /* Cartões de depoimento ocupam toda a tela no mobile */
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+}
 
 /* ========================================================
    RESPONSIVIDADE (MOBILE, TABLET E DESKTOP)
@@ -321,12 +618,38 @@ button:hover {
     }
 
     /* O modal precisa ocupar quase toda a largura no celular */
-    .modal-content {
+.modal-content {
         width: 90%;
-        margin: 40% auto; /* Desce um pouco mais na tela */
+        margin: 20px auto; 
         padding: 20px;
     }
+
+     body {
+        padding-top: 140px; /* Aumenta o espaço no mobile já que o menu quebra linha */
+    }
+
+    header {
+        height: auto;
+        padding: 15px 10px;
+    }
+
+    .containerHeader {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .navLinks {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+    
+    .navLinks a {
+        font-size: 0.85rem;
+    }
+    
 }
+
 
 /* ========================================================
    RESPONSIVIDADE (MEDIA QUERIES)
@@ -391,9 +714,9 @@ button:hover {
     }
 
     /* Modal quase em tela cheia para facilitar a leitura */
-    .modal-content {
+.modal-content {
         width: 90%;
-        margin: 25% auto;
+        margin: 20px auto; 
         padding: 20px;
     }
 
@@ -401,3 +724,5 @@ button:hover {
         font-size: 20px;
     }
 }
+
+

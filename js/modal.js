@@ -85,3 +85,61 @@ if (darkModeToggle && logo) {
         }
     });
 }
+
+
+//Modal de contato
+// Seleciona os elementos do modal de contato
+const contatoModal = document.getElementById('contatoModal');
+const btnOpenContato = document.getElementById('btnOpenContato');
+const closeContatoBtn = document.getElementById('closeContatoBtn');
+
+// Função para abrir o modal de contato
+btnOpenContato.addEventListener('click', () => {
+    contatoModal.style.display = 'block';
+});
+
+// Função para fechar o modal no botão (X)
+closeContatoBtn.addEventListener('click', () => {
+    contatoModal.style.display = 'none';
+});
+
+// Função para fechar o modal se o usuário clicar em qualquer lugar fora da caixa branca
+window.addEventListener('click', (event) => {
+    if (event.target === contatoModal) {
+        contatoModal.style.display = 'none';
+    }
+});
+
+// --- LÓGICA DO HEADER (SUMIR AO ROLAR PARA BAIXO / APARECER AO ROLAR PARA CIMA) ---
+let ultimoScroll = window.scrollY;
+const header = document.getElementById('mainHeader');
+
+window.addEventListener('scroll', () => {
+    const scrollAtual = window.scrollY;
+
+    if (scrollAtual > ultimoScroll && scrollAtual > 100) {
+        // Rolando para baixo -> Esconde o Header
+        header.classList.add('header-hidden');
+    } else {
+        // Rolando para cima -> Mostra o Header
+        header.classList.remove('header-hidden');
+    }
+    
+    ultimoScroll = scrollAtual;
+});
+
+// --- LINK DO HEADER ABRIR O MODAL DE CONTATO ---
+const navContato = document.getElementById('navContato');
+
+// Verificando se as variáveis do modal de contato já existem (do passo anterior)
+// Caso não existam no seu escopo global, o código abaixo garante o funcionamento:
+const modalContatoDois = document.getElementById('contatoModal');
+
+if (navContato && modalContatoDois) {
+    navContato.addEventListener('click', (event) => {
+        event.preventDefault(); // Impede a página de pular direto para a seção antiga
+        modalContatoDois.style.display = 'block'; // Abre o modal elegantemente
+    });
+}
+
+
