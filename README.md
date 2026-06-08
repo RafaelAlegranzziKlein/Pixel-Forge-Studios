@@ -53,6 +53,18 @@ Uma landing page moderna, responsiva e com estética premium gamer desenvolvida 
 ```
 
 ---
+## 🌐 Como Acessar e Executar o Projeto
+
+Você pode interagir com a landing page da Pixel Forge Studios de duas maneiras:
+
+### 1. Executando Localmente (Na sua máquina)
+
+Se você deseja baixar o código para testar, estudar ou fazer modificações:
+
+1. **Faça o clone do repositório** utilizando o terminal:
+   ```bash
+   git clone https://github.com/RafaelAlegranzziKlein/Pixel-Forge-Studios.git
+---
 
 ## 🙍 Autor do Projeto
 
