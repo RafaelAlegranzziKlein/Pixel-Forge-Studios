@@ -143,3 +143,50 @@ if (navContato && modalContatoDois) {
 }
 
 
+
+
+
+
+// ── Hamburger Menu ─────────────────────────────────────
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const navLinks     = document.getElementById('navLinks');
+
+// Cria overlay dinamicamente
+const overlay = document.createElement('div');
+overlay.classList.add('nav-overlay');
+document.body.appendChild(overlay);
+
+function openMenu() {
+    hamburgerBtn.classList.add('is-open');
+    navLinks.classList.add('is-open');
+    overlay.classList.add('is-open');
+    hamburgerBtn.setAttribute('aria-expanded', 'true');
+    navLinks.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeMenu() {
+    hamburgerBtn.classList.remove('is-open');
+    navLinks.classList.remove('is-open');
+    overlay.classList.remove('is-open');
+    hamburgerBtn.setAttribute('aria-expanded', 'false');
+    navLinks.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+}
+
+hamburgerBtn.addEventListener('click', () => {
+    hamburgerBtn.classList.contains('is-open') ? closeMenu() : openMenu();
+});
+
+// Fecha ao clicar no overlay
+overlay.addEventListener('click', closeMenu);
+
+// Fecha ao clicar em um link do menu
+navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+});
+
+// Fecha com Escape
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+});

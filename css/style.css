@@ -1,0 +1,309 @@
+/*Paleta de cores Modo escuro:
+- Vermelho: #F2613F
+- Marrom escuro: #9B3922
+- Preto: #0f0f0f
+- Marron: #481E14
+- Preto-acincetado: #0C0C0C
+*/
+
+/*paleta de cores Modo claro:
+- Branco: #FFFFFF
+- Azul claro: #8FABD4
+- 4A70A9 acincetado: #1a1a1a
+- Preto: #000000
+*/
+
+
+/* ========================================================
+   VARIÁVEIS DE CORES (PALETAS CLARA E ESCURA)
+   ======================================================== */
+:root {
+    /* MODO CLARO (Padrão) */
+    --bg-principal: #eee9e1;
+    --bg-header: #eee9e1;
+    --bg-card: #8FABD4;
+    --bg-card-hover: #4A70A9;
+    --cor-texto: #000000;
+    --cor-texto-secundario: #1a1a1a;
+    --bg-botao: #4A70A9;
+    --cor-texto-botao: #eee9e1;
+
+    /* Cores de Destaque e Sombras (Claro) */
+    --cor-destaque: #1a1a1a;
+    --sombra-forte: #1a1a1a;
+    --sombra-media: #4A70A9;
+    --sombra-fraca: #8FABD4;
+
+    /* Modal (Claro) */
+    --bg-modal: #eee9e1;
+    --borda-modal: #4A70A9;
+}
+
+[data-theme="dark"] {
+    /* MODO ESCURO */
+    --bg-principal: #0f0f0f;
+    --bg-header: #0f0f0f;
+    --bg-card: rgba(48, 56, 65, 0.5);
+    /* Mantive sua transparência original */
+    --bg-card-hover: #0C0C0C;
+    --cor-texto: #FFFFFF;
+    --cor-texto-secundario: #cccccc;
+    --bg-botao: #9B3922;
+    --cor-texto-botao: #0C0C0C;
+
+    /* Cores de Destaque e Sombras (Escuro) */
+    --cor-destaque: #F2613F;
+    --sombra-forte: #F2613F;
+    --sombra-media: #9B3922;
+    --sombra-fraca: #481E14;
+
+    /* Modal (Escuro) */
+    --bg-modal: #1a1a1a;
+    --borda-modal: #9B3922;
+}
+
+/* ========================================================
+   ESTILOS GERAIS
+   ======================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+/*body estilo*/
+body {
+    padding-top: 90px;
+}
+
+/* Suaviza a rolagem da página quando clicar nos links */
+html {
+    scroll-behavior: smooth;
+}
+
+
+body,
+button {
+    font-family: "Russo One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Adicionada transição suave no body e main */
+body,
+main {
+    background-color: var(--bg-principal);
+    color: var(--cor-texto);
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+
+/* ========================================================
+   BOTÕES GERAIS E TOGGLE
+   ======================================================== */
+button {
+    background-color: var(--bg-botao);
+    color: var(--cor-texto-botao);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+    filter: brightness(1.2);
+}
+
+#darkModeToggle {
+    margin-right: 15px;
+}
+
+/* ========================================================
+   NOVAS SEÇÕES: BANNER, TRAILER, COMUNIDADE E CONTATO
+   ======================================================== */
+
+/* Banner Principal */
+.banner-principal {
+    background-color: var(--sombra-forte); /* Fallback */
+    /* Se quiser colocar uma imagem de fundo depois, descomente a linha abaixo e mude a URL */
+    /* background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../assets/img/seu-banner.jpg') center/cover; */
+    color: #FFFFFF; /* Fixo branco para leitura no banner */
+    text-align: center;
+    padding: 80px 20px;
+    margin-bottom: 40px;
+    border-bottom: 4px solid var(--cor-destaque);
+}
+
+.banner-conteudo h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 0px 0px 15px var(--cor-destaque);
+}
+
+.banner-conteudo p {
+    font-size: 1.2rem;
+    color: #DDDDDD;
+}
+
+/* Configurações Gerais das Novas Seções */
+.secao-destaque {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: 0 auto 50px auto;
+    text-align: center;
+}
+
+.titulo-secao {
+    font-size: 2.2rem;
+    color: var(--cor-destaque);
+    margin-bottom: 30px;
+    text-shadow: 0px 2px 5px var(--sombra-media);
+}
+
+/* Trailer (Vídeo Responsivo) */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Proporção 16:9 */
+    height: 0;
+    overflow: hidden;
+    border: 3px solid var(--cor-destaque);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--sombra-media);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Comunidade / Depoimentos */
+.container-depoimentos {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.depoimento-card {
+    background-color: var(--bg-card);
+    padding: 25px;
+    border-radius: 8px;
+    width: 280px;
+    box-shadow: 0 4px 8px var(--sombra-fraca);
+    transition: transform 0.3s ease;
+    border-left: 4px solid var(--cor-destaque);
+    text-align: left;
+}
+
+.depoimento-card:hover {
+    transform: translateY(-5px);
+    background-color: var(--bg-card-hover);
+}
+
+.depoimento-card p {
+    font-style: italic;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.depoimento-card span {
+    font-weight: bold;
+    color: var(--cor-destaque);
+}
+
+/* Formulário de Contato */
+.formulario-contato {
+    background-color: var(--bg-card);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px var(--sombra-fraca);
+    text-align: left;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--cor-texto);
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--sombra-media);
+    border-radius: 5px;
+    background-color: var(--bg-principal);
+    color: var(--cor-texto);
+    font-family: inherit;
+    box-sizing: border-box; /* Impede que o padding quebre a largura */
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    outline: none;
+    border-color: var(--cor-destaque);
+    box-shadow: 0 0 8px var(--cor-destaque);
+}
+
+.btn-enviar {
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background-color: var(--bg-header);
+    color: var(--cor-texto);
+    padding: 40px 20px 20px;
+    border-top: 3px solid var(--cor-destaque);
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: 30px;
+    text-align: center;
+}
+
+.footer-contato h4, .footer-social h4 {
+    color: var(--cor-destaque);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.footer-contato p {
+    margin: 5px 0;
+}
+
+.footer-social a {
+    color: var(--cor-texto);
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.footer-social a:hover {
+    color: var(--cor-destaque);
+}
+
+.footer-copyright {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid var(--sombra-fraca);
+    font-size: 0.9rem;
+    color: var(--cor-texto-secundario);
+}

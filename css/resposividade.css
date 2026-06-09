@@ -1,0 +1,131 @@
+/* ========================================================
+   RESPONSIVIDADE
+   ======================================================== */
+
+/* ----- TABLET (Telas até 1024px) ----- */
+@media (max-width: 1024px) {
+
+    #logo {
+        width: 145px;
+    }
+
+    .card {
+        width: 42%;
+        margin-bottom: 4%;
+    }
+
+    .modal-content {
+        width: 70%;
+    }
+}
+
+/* ----- TABLET MÉDIO (Telas até 768px) ----- */
+@media (max-width: 768px) {
+
+    body {
+        padding-top: 140px;
+    }
+
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 10px;
+        text-align: center;
+        gap: 15px;
+    }
+
+    #logo {
+        width: 145px;
+    }
+
+    .containerHeader {
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .navLinks {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 10px;
+    }
+
+    .navLinks a {
+        font-size: 0.85rem;
+    }
+
+    .container-jogos {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .card {
+        width: 85%;
+        padding: 6%;
+    }
+
+    .logoJogo {
+        width: 65%;
+    }
+
+    .modal-content {
+        width: 90%;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .banner-conteudo h2 {
+        font-size: 2rem;
+    }
+
+    .depoimento-card {
+        width: 100%;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+}
+
+/* ----- CELULAR PEQUENO (Telas até 480px) ----- */
+@media (max-width: 480px) {
+
+    #logo {
+        width: 70%;
+    }
+
+    .navLinks {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .navLinks a {
+        margin: 0 5px;
+    }
+
+    .card {
+        width: 85%;
+        padding: 8%;
+    }
+
+    .container-jogos {
+        gap: 20px;
+    }
+
+    .modal-content {
+        width: 90%;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .modal-content h2 {
+        font-size: 20px;
+    }
+}
