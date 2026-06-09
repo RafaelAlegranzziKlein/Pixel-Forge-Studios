@@ -64,6 +64,8 @@ Se você deseja baixar o código para testar, estudar ou fazer modificações:
 1. **Faça o clone do repositório** utilizando o terminal:
    ```bash
    git clone https://github.com/RafaelAlegranzziKlein/Pixel-Forge-Studios.git
+
+2. **Link do site** https://pixel-forge-studios-psi.vercel.app/
 ---
 
 ## 🙍 Autor do Projeto
